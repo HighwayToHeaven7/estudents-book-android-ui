@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.composable.chat
+package pl.mjurek.highwaytoheaven.app.composable.notifications
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize

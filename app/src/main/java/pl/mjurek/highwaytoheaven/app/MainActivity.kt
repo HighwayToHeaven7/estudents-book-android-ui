@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                                 ),
                                 BottomNavItem(
                                     name = "Chat",
-                                    route = "chat",
+                                    route = "Notifications",
                                     icon = Icons.Default.Notifications,
                                     badgeCount = 4
                                 ),
