@@ -11,6 +11,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.navigation.compose.rememberNavController
 import pl.mjurek.highwaytoheaven.app.composable.BottomNavItem
 import pl.mjurek.highwaytoheaven.app.composable.BottomNavigationBar
+import pl.mjurek.highwaytoheaven.app.composable.Navigation
 import pl.mjurek.highwaytoheaven.app.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,8 +31,8 @@ class MainActivity : ComponentActivity() {
                                     icon = Icons.Default.Home
                                 ),
                                 BottomNavItem(
-                                    name = "Chat",
-                                    route = "Notifications",
+                                    name = "Notifications",
+                                    route = "notifications",
                                     icon = Icons.Default.Notifications,
                                     badgeCount = 4
                                 ),
