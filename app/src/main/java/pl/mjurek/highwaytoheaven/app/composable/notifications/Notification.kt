@@ -5,6 +5,6 @@ import androidx.compose.ui.graphics.painter.Painter
 data class Notification(
     val title: String,
     val message: String,
-    val image: Painter
+    val image: Painter? = null
 )
 
