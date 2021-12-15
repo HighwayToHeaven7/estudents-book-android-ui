@@ -27,13 +27,13 @@ fun BottomNavigationBar(
         elevation = 5.dp
     ) {
         items.forEach { item ->
-            val selected = item.route == backStackEntry.value?.destination?.route
+            val isSelected = item.route == backStackEntry.value?.destination?.route
             BottomNavigationItem(
-                selected = selected,
+                selected = isSelected,
                 onClick = { onItemClick(item) },
                 selectedContentColor = Color.Green,
                 unselectedContentColor = Color.Gray,
-                icon = { Icons(selected, item) }
+                icon = { Icons(isSelected, item) }
             )
         }
     }
@@ -41,7 +41,7 @@ fun BottomNavigationBar(
 
 @ExperimentalMaterialApi
 @Composable
-fun Icons(selected: Boolean, item: BottomNavItem) {
+fun Icons(isSelected: Boolean, item: BottomNavItem) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         if (item.badgeCount > 0) {
             BadgeBox(
@@ -60,7 +60,7 @@ fun Icons(selected: Boolean, item: BottomNavItem) {
                 contentDescription = item.name
             )
         }
-        if (selected) {
+        if (isSelected) {
             Text(
                 text = item.name,
                 textAlign = TextAlign.Center,
