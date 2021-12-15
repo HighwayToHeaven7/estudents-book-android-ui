@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.composable.home
+package pl.mjurek.highwaytoheaven.app.presentation.settings
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun HomeScreen() {
+fun SettingsScreen() {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Home screen")
+        Text(text = "Settings screen")
     }
 }

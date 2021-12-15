@@ -9,9 +9,9 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Settings
 import androidx.navigation.compose.rememberNavController
-import pl.mjurek.highwaytoheaven.app.composable.BottomNavItem
-import pl.mjurek.highwaytoheaven.app.composable.BottomNavigationBar
-import pl.mjurek.highwaytoheaven.app.composable.Navigation
+import pl.mjurek.highwaytoheaven.app.presentation.BottomNavItem
+import pl.mjurek.highwaytoheaven.app.presentation.BottomNavigationBar
+import pl.mjurek.highwaytoheaven.app.presentation.Navigation
 import pl.mjurek.highwaytoheaven.app.ui.theme.AppTheme
 
 class MainActivity : ComponentActivity() {
@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                                     name = "Notifications",
                                     route = "notifications",
                                     icon = Icons.Default.Notifications,
-                                    badgeCount = 4
+                                    badgeCount = 3
                                 ),
                                 BottomNavItem(
                                     name = "Settings",

@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.composable
+package pl.mjurek.highwaytoheaven.app.presentation
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material.*

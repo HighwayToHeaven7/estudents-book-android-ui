@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.composable
+package pl.mjurek.highwaytoheaven.app.presentation
 
 import androidx.compose.ui.graphics.vector.ImageVector
 

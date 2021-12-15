@@ -1,6 +1,6 @@
 package pl.mjurek.highwaytoheaven.app.domain.notification
 
-import pl.mjurek.highwaytoheaven.app.composable.notifications.Notification
+import pl.mjurek.highwaytoheaven.app.presentation.notifications.Notification
 
 fun getFakeNotification(): List<Notification> {
     return listOf(
