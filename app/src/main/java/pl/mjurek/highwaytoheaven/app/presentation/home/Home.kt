@@ -43,21 +43,6 @@ fun HomeScreen(
                     navController.navigate(action.navigation)
                 }
             )
-
         }
-    }
-}
-
-@Composable
-fun UserActionComposable(userAction: UserAction, onItemClick: (BottomNavItem) -> Unit) {
-    Row(
-        modifier = Modifier
-            .padding(all = 10.dp)
-            .border(width = 2.dp, color = Color.LightGray, shape = RoundedCornerShape(5.dp))
-            .fillMaxWidth()
-            .background(color = Color(0x8F89A1AA)),
-
-        ) {
-
     }
 }

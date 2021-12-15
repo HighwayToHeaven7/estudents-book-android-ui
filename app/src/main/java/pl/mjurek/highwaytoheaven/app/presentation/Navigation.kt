@@ -4,10 +4,11 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import pl.mjurek.highwaytoheaven.app.domain.fake.getFakeGrades
 import pl.mjurek.highwaytoheaven.app.presentation.notifications.NotificationsScreen
 import pl.mjurek.highwaytoheaven.app.presentation.home.HomeScreen
 import pl.mjurek.highwaytoheaven.app.presentation.settings.SettingsScreen
-import pl.mjurek.highwaytoheaven.app.domain.notification.getFakeNotification
+import pl.mjurek.highwaytoheaven.app.domain.fake.getFakeNotification
 import pl.mjurek.highwaytoheaven.app.presentation.home.UserAction
 import pl.mjurek.highwaytoheaven.app.presentation.home.grades.Grades
 import pl.mjurek.highwaytoheaven.app.presentation.home.time_table.TimeTable
@@ -18,7 +19,7 @@ sealed class DrawerScreens(val title: String) {
     object Notifications : DrawerScreens("notifications")
     object Settings : DrawerScreens("settings")
     object Grades : DrawerScreens("grades")
-    object TimeTable : DrawerScreens("time_table")
+    object SchoolActivities : DrawerScreens("my_activities")
 }
 
 @Composable
@@ -34,9 +35,9 @@ fun Navigation(navController: NavHostController) {
             SettingsScreen()
         }
         composable(DrawerScreens.Grades.title) {
-            Grades()
+            Grades(getFakeGrades())
         }
-        composable(DrawerScreens.TimeTable.title) {
+        composable(DrawerScreens.SchoolActivities.title) {
             TimeTable()
         }
     }
@@ -49,8 +50,8 @@ fun userActions(): List<UserAction> {
             navigation = DrawerScreens.Grades.title
         ),
         UserAction(
-            name = "Plan zajec",
-            navigation = DrawerScreens.TimeTable.title
+            name = "Moje zajęcia",
+            navigation = DrawerScreens.SchoolActivities.title
         )
     )
 }

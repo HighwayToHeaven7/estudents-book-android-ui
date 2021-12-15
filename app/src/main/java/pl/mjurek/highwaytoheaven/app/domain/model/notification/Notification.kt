@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.notifications
+package pl.mjurek.highwaytoheaven.app.domain.model.notification
 
 import androidx.compose.ui.graphics.painter.Painter
 
