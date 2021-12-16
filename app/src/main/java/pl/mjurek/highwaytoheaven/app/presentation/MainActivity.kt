@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app
+package pl.mjurek.highwaytoheaven.app.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -10,11 +10,13 @@ import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Settings
 import androidx.navigation.compose.rememberNavController
+import dagger.hilt.android.AndroidEntryPoint
 import pl.mjurek.highwaytoheaven.app.presentation.components.BottomNavItem
 import pl.mjurek.highwaytoheaven.app.presentation.BottomNavigationBar
 import pl.mjurek.highwaytoheaven.app.presentation.utils.Navigation
 import pl.mjurek.highwaytoheaven.app.presentation.ui.AppTheme
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @ExperimentalFoundationApi
     @ExperimentalMaterialApi

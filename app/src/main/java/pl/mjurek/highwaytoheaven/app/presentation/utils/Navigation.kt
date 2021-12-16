@@ -11,8 +11,9 @@ import pl.mjurek.highwaytoheaven.app.presentation.home.HomeScreen
 import pl.mjurek.highwaytoheaven.app.presentation.settings.SettingsScreen
 import pl.mjurek.highwaytoheaven.app.domain.fake.getFakeNotification
 import pl.mjurek.highwaytoheaven.app.presentation.home.UserAction
-import pl.mjurek.highwaytoheaven.app.presentation.home.grades.Grades
+import pl.mjurek.highwaytoheaven.app.presentation.home.grades.GradesScreen
 import pl.mjurek.highwaytoheaven.app.presentation.home.time_table.TimeTable
+import pl.mjurek.highwaytoheaven.app.presentation.login.LoginScreen
 import pl.mjurek.highwaytoheaven.app.presentation.splash.SplashScreen
 
 
@@ -22,6 +23,9 @@ fun Navigation(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.Splash.route) {
         composable(Screen.Splash.route) {
             SplashScreen(navController)
+        }
+        composable(Screen.Login.route) {
+            LoginScreen(navController)
         }
         composable(Screen.Home.route) {
             HomeScreen(navController, userActions())
@@ -33,7 +37,7 @@ fun Navigation(navController: NavHostController) {
             SettingsScreen()
         }
         composable(Screen.Grades.route) {
-            Grades(getFakeGrades())
+            GradesScreen(getFakeGrades())
         }
         composable(Screen.SchoolActivities.route) {
             TimeTable()

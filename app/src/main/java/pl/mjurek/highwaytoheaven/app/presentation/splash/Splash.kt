@@ -46,7 +46,7 @@ fun SplashScreen(
             )
             delay(Constants.SPLASH_SCREEN_DURATION)
             navController.popBackStack()
-            navController.navigate(Screen.Home.route)
+            navController.navigate(Screen.Login.route)
         }
     }
     Box(

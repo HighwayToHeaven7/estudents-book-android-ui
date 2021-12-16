@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 
 @ExperimentalFoundationApi
 @Composable
-fun Grades(grades: List<CollapsableSection>, modifier: Modifier = Modifier) {
+fun GradesScreen(grades: List<CollapsableSection>, modifier: Modifier = Modifier) {
     val collapsedState = remember(grades) { grades.map { true }.toMutableStateList() }
     
     LazyColumn(modifier) {
