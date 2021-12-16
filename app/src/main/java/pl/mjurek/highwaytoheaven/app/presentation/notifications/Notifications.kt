@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import pl.mjurek.highwaytoheaven.app.R
 import pl.mjurek.highwaytoheaven.app.domain.model.notification.Notification
 import pl.mjurek.highwaytoheaven.app.domain.fake.getFakeNotification
-import pl.mjurek.highwaytoheaven.app.ui.theme.AppTheme
+import pl.mjurek.highwaytoheaven.app.presentation.ui.AppTheme
 
 @Composable
 fun NotificationsScreen(notifications: List<Notification>) {

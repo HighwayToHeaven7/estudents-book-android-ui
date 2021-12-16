@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.ui.theme
+package pl.mjurek.highwaytoheaven.app.presentation.ui
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
