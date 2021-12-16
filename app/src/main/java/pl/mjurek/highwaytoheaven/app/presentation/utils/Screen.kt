@@ -1,6 +1,7 @@
 package pl.mjurek.highwaytoheaven.app.presentation.utils
 
-sealed class Screen(val title: String) {
+sealed class Screen(val route: String) {
+    object Splash : Screen("splash")
     object Home : Screen("home")
     object Notifications : Screen("notifications")
     object Settings : Screen("settings")
