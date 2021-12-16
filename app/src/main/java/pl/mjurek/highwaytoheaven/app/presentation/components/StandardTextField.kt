@@ -1,6 +1,5 @@
 package pl.mjurek.highwaytoheaven.app.presentation.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
@@ -15,20 +14,17 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
+import pl.mjurek.highwaytoheaven.app.R
 import pl.mjurek.highwaytoheaven.app.presentation.ui.theme.IconSizeMedium
 import pl.mjurek.highwaytoheaven.app.presentation.utils.TestTags
-import pl.mjurek.highwaytoheaven.app.R
-import pl.mjurek.highwaytoheaven.app.presentation.ui.whiteBackground
+
 //colors = MaterialTheme.colors.onSurface,
 @Composable
 fun StandardTextField(
@@ -89,7 +85,7 @@ fun StandardTextField(
                 }
                 icon
             } else null,
-            trailingIcon = if(isPasswordToggleDisplayed) {
+            trailingIcon = if (isPasswordToggleDisplayed) {
                 val icon: @Composable () -> Unit = {
                     IconButton(
                         onClick = {

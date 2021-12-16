@@ -5,17 +5,12 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.material.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Settings
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.Scaffold
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import pl.mjurek.highwaytoheaven.app.presentation.components.BottomNavItem
-import pl.mjurek.highwaytoheaven.app.presentation.BottomNavigationBar
-import pl.mjurek.highwaytoheaven.app.presentation.utils.Navigation
 import pl.mjurek.highwaytoheaven.app.presentation.ui.AppTheme
+import pl.mjurek.highwaytoheaven.app.presentation.utils.Navigation
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

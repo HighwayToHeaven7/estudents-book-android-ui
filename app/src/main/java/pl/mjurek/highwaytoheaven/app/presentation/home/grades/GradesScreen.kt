@@ -2,7 +2,10 @@ package pl.mjurek.highwaytoheaven.app.presentation.home.grades
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Divider
@@ -24,13 +27,13 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun GradesScreen(grades: List<CollapsableSection>, modifier: Modifier = Modifier) {
     val collapsedState = remember(grades) { grades.map { true }.toMutableStateList() }
-    
+
     LazyColumn(modifier) {
         grades.forEachIndexed { i, dataItem ->
-            stickyHeader{
+            stickyHeader {
                 Row(
                     verticalAlignment = Alignment.CenterVertically
-                ){
+                ) {
                     Spacer(modifier = Modifier.size(15.dp))
                     Text(
                         "Przedmiot", //subjectName

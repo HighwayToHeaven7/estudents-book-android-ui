@@ -1,8 +1,7 @@
 import com.google.gson.annotations.SerializedName
 
 
+data class ContactDto(
 
-data class ContactDto (
-
-	@SerializedName("phoneNumber") val phoneNumber : String
+    @SerializedName("phoneNumber") val phoneNumber: String
 )

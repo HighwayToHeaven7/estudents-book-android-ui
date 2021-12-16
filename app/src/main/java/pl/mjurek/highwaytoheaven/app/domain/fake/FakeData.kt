@@ -4,8 +4,6 @@ import android.util.Log
 import pl.mjurek.highwaytoheaven.app.domain.model.notification.Notification
 import pl.mjurek.highwaytoheaven.app.presentation.home.grades.CollapsableSection
 import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.random.Random.Default.nextInt
 
 fun getFakeNotification(): List<Notification> {
     return listOf(
