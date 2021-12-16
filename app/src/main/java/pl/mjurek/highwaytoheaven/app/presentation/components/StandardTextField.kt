@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.*
+import androidx.compose.material.TextFieldDefaults.outlinedTextFieldColors
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
@@ -26,7 +27,8 @@ import androidx.compose.ui.unit.dp
 import pl.mjurek.highwaytoheaven.app.presentation.ui.theme.IconSizeMedium
 import pl.mjurek.highwaytoheaven.app.presentation.utils.TestTags
 import pl.mjurek.highwaytoheaven.app.R
-
+import pl.mjurek.highwaytoheaven.app.presentation.ui.whiteBackground
+//colors = MaterialTheme.colors.onSurface,
 @Composable
 fun StandardTextField(
     modifier: Modifier = Modifier,
@@ -48,7 +50,7 @@ fun StandardTextField(
 ) {
     Column(
         modifier = modifier
-            .fillMaxWidth()
+            .fillMaxWidth(0.85f)
     ) {
         TextField(
             value = text,
@@ -103,7 +105,7 @@ fun StandardTextField(
                             } else {
                                 Icons.Filled.Visibility
                             },
-                            tint = Color.White,
+                            tint = Color.Gray,
                             contentDescription = if (isPasswordVisible) {
                                 stringResource(id = R.string.password_visible_content_description)
                             } else {
@@ -114,6 +116,7 @@ fun StandardTextField(
                 }
                 icon
             } else null,
+            colors = outlinedTextFieldColors(),
             modifier = Modifier
                 .fillMaxWidth()
                 .semantics {

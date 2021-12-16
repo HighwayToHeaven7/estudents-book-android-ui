@@ -46,7 +46,9 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = hiltVi
         ) {
             Image(
                 painter = image, contentDescription = null,
-                modifier = Modifier.fillMaxHeight(0.40f).fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxHeight(0.40f)
+                    .fillMaxWidth()
             )
         }
 
@@ -60,55 +62,55 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = hiltVi
                 .background(whiteBackground)
                 .padding(10.dp)
         ) {
+            Text(
+                text = stringResource(id = R.string.login),
+                style = TextStyle(
+                    fontWeight = FontWeight.Bold,
+                    letterSpacing = 2.sp
+                ),
+                fontSize = 30.sp
+            )
+            Spacer(modifier = Modifier.padding(20.dp))
+            StandardTextField(
+                text = viewModel.usernameText.value,
+                onValueChange = {
+                    viewModel.setUsernameText(it)
+                },
+                keyboardType = KeyboardType.Email,
+                error = viewModel.usernameError.value,
+                hint = stringResource(id = R.string.login_hint)
+            )
+            Spacer(modifier = Modifier.height(SpaceMedium))
+            StandardTextField(
+                text = viewModel.passwordText.value,
+                onValueChange = {
+                    viewModel.setPasswordText(it)
+                },
+                hint = stringResource(id = R.string.password_hint),
+                keyboardType = KeyboardType.Password,
+                error = viewModel.passwordError.value,
+                isPasswordVisible = viewModel.showPassword.value,
+                onPasswordToggleClick = {
+                    viewModel.setShowPassword(it)
+                }
+            )
+            Spacer(modifier = Modifier.height(20.dp))
+            Button(
+                onClick = {
+                    navController.navigate(
+                        Screen.Home.route
+                    )
+                },
+                modifier = Modifier
+                    .fillMaxWidth(0.85f)
+                    .height(50.dp)
+            ) {
                 Text(
                     text = stringResource(id = R.string.login),
-                    style = TextStyle(
-                        fontWeight = FontWeight.Bold,
-                        letterSpacing = 2.sp
-                    ),
-                    fontSize = 30.sp
+                    color = MaterialTheme.colors.onPrimary,
+                    fontSize = 20.sp
                 )
-                Spacer(modifier = Modifier.padding(20.dp))
-                StandardTextField(
-                    text = viewModel.usernameText.value,
-                    onValueChange = {
-                        viewModel.setUsernameText(it)
-                    },
-                    keyboardType = KeyboardType.Email,
-                    error = viewModel.usernameError.value,
-                    hint = stringResource(id = R.string.login_hint)
-                )
-                Spacer(modifier = Modifier.height(SpaceMedium))
-                StandardTextField(
-                    text = viewModel.passwordText.value,
-                    onValueChange = {
-                        viewModel.setPasswordText(it)
-                    },
-                    hint = stringResource(id = R.string.password_hint),
-                    keyboardType = KeyboardType.Password,
-                    error = viewModel.passwordError.value,
-                    isPasswordVisible = viewModel.showPassword.value,
-                    onPasswordToggleClick = {
-                        viewModel.setShowPassword(it)
-                    }
-                )
-                Spacer(modifier = Modifier.height(20.dp))
-                Button(
-                    onClick = {
-                        navController.navigate(
-                            Screen.Home.route
-                        )
-                    },
-                    modifier = Modifier
-                        .fillMaxWidth(0.8f)
-                        .height(50.dp)
-                ) {
-                    Text(
-                        text = stringResource(id = R.string.login),
-                        color = MaterialTheme.colors.onPrimary,
-                        fontSize = 20.sp
-                    )
-                }
+            }
         }
     }
 }
