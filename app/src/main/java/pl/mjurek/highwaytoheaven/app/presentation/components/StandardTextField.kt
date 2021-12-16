@@ -19,6 +19,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -37,7 +38,7 @@ fun StandardTextField(
     maxLength: Int = 40,
     error: String = "",
     style: TextStyle = TextStyle(
-        color = MaterialTheme.colors.onPrimary
+        color = Color.Black
     ),
     singleLine: Boolean = true,
     maxLines: Int = 1,

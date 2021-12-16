@@ -30,6 +30,7 @@ import pl.mjurek.highwaytoheaven.app.presentation.ui.theme.SpaceLarge
 import pl.mjurek.highwaytoheaven.app.presentation.ui.theme.SpaceMedium
 import pl.mjurek.highwaytoheaven.app.presentation.ui.whiteBackground
 import pl.mjurek.highwaytoheaven.app.presentation.utils.Screen
+import pl.mjurek.highwaytoheaven.app.util.Constants
 
 
 @Composable
@@ -47,7 +48,7 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = hiltVi
             Image(
                 painter = image, contentDescription = null,
                 modifier = Modifier
-                    .fillMaxHeight(0.40f)
+                    .fillMaxHeight(Constants.LOGIN_SIZE_ICON)
                     .fillMaxWidth()
             )
         }
