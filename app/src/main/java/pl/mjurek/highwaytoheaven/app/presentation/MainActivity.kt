@@ -26,32 +26,32 @@ class MainActivity : ComponentActivity() {
             AppTheme {
                 val navController = rememberNavController()
                 Scaffold(
-                    bottomBar = {
-                        BottomNavigationBar(
-                            items = listOf(
-                                BottomNavItem(
-                                    name = "Home",
-                                    route = "home",
-                                    icon = Icons.Default.Home
-                                ),
-                                BottomNavItem(
-                                    name = "Notifications",
-                                    route = "notifications",
-                                    icon = Icons.Default.Notifications,
-                                    badgeCount = 3
-                                ),
-                                BottomNavItem(
-                                    name = "Settings",
-                                    route = "settings",
-                                    icon = Icons.Default.Settings
-                                )
-                            ),
-                            navController = navController,
-                            onItemClick = {
-                                navController.navigate(it.route)
-                            }
-                        )
-                    }
+//                    bottomBar = {
+//                        BottomNavigationBar(
+//                            items = listOf(
+//                                BottomNavItem(
+//                                    name = "Home",
+//                                    route = "home",
+//                                    icon = Icons.Default.Home
+//                                ),
+//                                BottomNavItem(
+//                                    name = "Notifications",
+//                                    route = "notifications",
+//                                    icon = Icons.Default.Notifications,
+//                                    badgeCount = 3
+//                                ),
+//                                BottomNavItem(
+//                                    name = "Settings",
+//                                    route = "settings",
+//                                    icon = Icons.Default.Settings
+//                                )
+//                            ),
+//                            navController = navController,
+//                            onItemClick = {
+//                                navController.navigate(it.route)
+//                            }
+//                        )
+//                    }
                 ) {
                     Navigation(navController = navController)
                 }
