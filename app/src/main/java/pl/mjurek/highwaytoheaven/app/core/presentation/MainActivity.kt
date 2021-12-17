@@ -9,8 +9,8 @@ import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.Scaffold
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import pl.mjurek.highwaytoheaven.app.presentation.ui.AppTheme
 import pl.mjurek.highwaytoheaven.app.core.presentation.utils.Navigation
+import pl.mjurek.highwaytoheaven.app.presentation.ui.AppTheme
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

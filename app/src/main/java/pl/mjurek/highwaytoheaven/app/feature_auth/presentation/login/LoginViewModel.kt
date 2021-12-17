@@ -4,14 +4,14 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import pl.mjurek.highwaytoheaven.app.core.util.UiText
-import pl.mjurek.highwaytoheaven.app.domain.states.StandardTextFieldState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import pl.mjurek.highwaytoheaven.app.core.presentation.utils.UiEvent
 import pl.mjurek.highwaytoheaven.app.core.util.Resource
+import pl.mjurek.highwaytoheaven.app.core.util.UiText
+import pl.mjurek.highwaytoheaven.app.domain.states.StandardTextFieldState
 import pl.mjurek.highwaytoheaven.app.feature_auth.domain.use_case.LoginUseCase
 import javax.inject.Inject
 
@@ -34,7 +34,7 @@ class LoginViewModel @Inject constructor(
     val eventFlow = _eventFlow.asSharedFlow()
 
     fun onEvent(event: LoginEvent) {
-        when(event) {
+        when (event) {
             is LoginEvent.EnteredEmail -> {
                 _emailState.value = emailState.value.copy(
                     text = event.email
@@ -58,17 +58,17 @@ class LoginViewModel @Inject constructor(
                         password = passwordState.value.text
                     )
                     _loginState.value = loginState.value.copy(isLoading = false)
-                    if(loginResult.emailError != null) {
+                    if (loginResult.emailError != null) {
                         _emailState.value = emailState.value.copy(
                             error = loginResult.emailError
                         )
                     }
-                    if(loginResult.passwordError != null) {
+                    if (loginResult.passwordError != null) {
                         _passwordState.value = _passwordState.value.copy(
                             error = loginResult.passwordError
                         )
                     }
-                    when(loginResult.result) {
+                    when (loginResult.result) {
                         is Resource.Success -> {
                             _eventFlow.emit(UiEvent.OnLogin)
                         }

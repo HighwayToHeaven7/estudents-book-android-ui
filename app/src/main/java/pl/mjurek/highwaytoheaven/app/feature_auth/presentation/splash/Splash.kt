@@ -19,8 +19,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import pl.mjurek.highwaytoheaven.app.R
-import pl.mjurek.highwaytoheaven.app.core.util.Screen
 import pl.mjurek.highwaytoheaven.app.core.util.Constants
+import pl.mjurek.highwaytoheaven.app.core.util.Screen
 
 @Composable
 fun SplashScreen(

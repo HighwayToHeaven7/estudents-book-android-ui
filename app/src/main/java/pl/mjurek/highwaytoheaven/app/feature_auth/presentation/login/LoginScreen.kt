@@ -24,11 +24,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import pl.mjurek.highwaytoheaven.app.R
 import pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme.SpaceMedium
-import pl.mjurek.highwaytoheaven.app.core.util.Screen
-import pl.mjurek.highwaytoheaven.app.presentation.components.StandardTextField
-import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.util.AuthError
-import pl.mjurek.highwaytoheaven.app.presentation.ui.whiteBackground
 import pl.mjurek.highwaytoheaven.app.core.util.Constants
+import pl.mjurek.highwaytoheaven.app.core.util.Screen
+import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.util.AuthError
+import pl.mjurek.highwaytoheaven.app.presentation.components.StandardTextField
+import pl.mjurek.highwaytoheaven.app.presentation.ui.whiteBackground
 
 
 @Composable

@@ -21,7 +21,7 @@ class AuthRepositoryImpl(
         val request = LoginRequest(email, password)
         return try {
             val response = api.login(request)
-            if(response.successful) {
+            if (response.successful) {
                 response.data?.let { authResponse ->
                     println("Overriding token with ${authResponse.token}")
                     sharedPreferences.edit()
@@ -35,11 +35,11 @@ class AuthRepositoryImpl(
                     Resource.Error(UiText.DynamicString(msg))
                 } ?: Resource.Error(UiText.StringResource(R.string.error_unknown))
             }
-        } catch(e: IOException) {
+        } catch (e: IOException) {
             Resource.Error(
                 uiText = UiText.StringResource(R.string.error_couldnt_reach_server)
             )
-        } catch(e: HttpException) {
+        } catch (e: HttpException) {
             Resource.Error(
                 uiText = UiText.StringResource(R.string.oops_something_went_wrong)
             )
