@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.login
+package pl.mjurek.highwaytoheaven.app.feature_auth.presentation.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,6 +12,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -22,16 +23,21 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import pl.mjurek.highwaytoheaven.app.R
+import pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme.SpaceMedium
+import pl.mjurek.highwaytoheaven.app.core.util.Screen
 import pl.mjurek.highwaytoheaven.app.presentation.components.StandardTextField
-import pl.mjurek.highwaytoheaven.app.presentation.ui.theme.SpaceMedium
+import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.util.AuthError
 import pl.mjurek.highwaytoheaven.app.presentation.ui.whiteBackground
-import pl.mjurek.highwaytoheaven.app.presentation.utils.Screen
-import pl.mjurek.highwaytoheaven.app.util.Constants
+import pl.mjurek.highwaytoheaven.app.core.util.Constants
 
 
 @Composable
 fun LoginScreen(navController: NavController, viewModel: LoginViewModel = hiltViewModel()) {
     val image = painterResource(id = R.drawable.login_image)
+    val emailState = viewModel.emailState.value
+    val passwordState = viewModel.passwordState.value
+    val state = viewModel.loginState.value
+    val context = LocalContext.current
 
     Box(
         modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter
@@ -69,26 +75,32 @@ fun LoginScreen(navController: NavController, viewModel: LoginViewModel = hiltVi
             )
             Spacer(modifier = Modifier.padding(20.dp))
             StandardTextField(
-                text = viewModel.usernameText.value,
+                text = emailState.text,
                 onValueChange = {
-                    viewModel.setUsernameText(it)
+                    viewModel.onEvent(LoginEvent.EnteredEmail(it))
                 },
                 keyboardType = KeyboardType.Email,
-                error = viewModel.usernameError.value,
+                error = when (emailState.error) {
+                    is AuthError.FieldEmpty -> stringResource(id = R.string.error_field_empty)
+                    else -> ""
+                },
                 hint = stringResource(id = R.string.login_hint)
             )
             Spacer(modifier = Modifier.height(SpaceMedium))
             StandardTextField(
-                text = viewModel.passwordText.value,
+                text = passwordState.text,
                 onValueChange = {
-                    viewModel.setPasswordText(it)
+                    viewModel.onEvent(LoginEvent.EnteredPassword(it))
                 },
                 hint = stringResource(id = R.string.password_hint),
                 keyboardType = KeyboardType.Password,
-                error = viewModel.passwordError.value,
-                isPasswordVisible = viewModel.showPassword.value,
+                error = when (passwordState.error) {
+                    is AuthError.FieldEmpty -> stringResource(id = R.string.error_field_empty)
+                    else -> ""
+                },
+                isPasswordVisible = state.isPasswordVisible,
                 onPasswordToggleClick = {
-                    viewModel.setShowPassword(it)
+                    viewModel.onEvent(LoginEvent.TogglePasswordVisibility)
                 }
             )
             Spacer(modifier = Modifier.height(20.dp))

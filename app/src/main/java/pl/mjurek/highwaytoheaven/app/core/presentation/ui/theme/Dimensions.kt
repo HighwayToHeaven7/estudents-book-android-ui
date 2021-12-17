@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.ui.theme
+package pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme
 
 import androidx.compose.ui.unit.dp
 

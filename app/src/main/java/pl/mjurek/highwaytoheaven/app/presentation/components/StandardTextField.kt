@@ -22,8 +22,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import pl.mjurek.highwaytoheaven.app.R
-import pl.mjurek.highwaytoheaven.app.presentation.ui.theme.IconSizeMedium
-import pl.mjurek.highwaytoheaven.app.presentation.utils.TestTags
+import pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme.IconSizeMedium
+import pl.mjurek.highwaytoheaven.app.core.util.TestTags
 
 //colors = MaterialTheme.colors.onSurface,
 @Composable

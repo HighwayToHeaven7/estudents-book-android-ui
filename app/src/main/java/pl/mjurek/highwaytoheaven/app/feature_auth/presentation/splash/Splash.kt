@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.splash
+package pl.mjurek.highwaytoheaven.app.feature_auth.presentation.splash
 
 import android.view.animation.OvershootInterpolator
 import androidx.compose.animation.core.Animatable
@@ -19,8 +19,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import pl.mjurek.highwaytoheaven.app.R
-import pl.mjurek.highwaytoheaven.app.presentation.utils.Screen
-import pl.mjurek.highwaytoheaven.app.util.Constants
+import pl.mjurek.highwaytoheaven.app.core.util.Screen
+import pl.mjurek.highwaytoheaven.app.core.util.Constants
 
 @Composable
 fun SplashScreen(

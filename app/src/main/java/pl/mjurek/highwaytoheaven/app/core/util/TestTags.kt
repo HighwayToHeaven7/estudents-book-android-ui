@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.utils
+package pl.mjurek.highwaytoheaven.app.core.util
 
 object TestTags {
 

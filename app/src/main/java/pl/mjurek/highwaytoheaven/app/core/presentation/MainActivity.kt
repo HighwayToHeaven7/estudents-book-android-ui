@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation
+package pl.mjurek.highwaytoheaven.app.core.presentation
 
 import android.os.Bundle
 import android.view.WindowManager
@@ -10,7 +10,7 @@ import androidx.compose.material.Scaffold
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
 import pl.mjurek.highwaytoheaven.app.presentation.ui.AppTheme
-import pl.mjurek.highwaytoheaven.app.presentation.utils.Navigation
+import pl.mjurek.highwaytoheaven.app.core.presentation.utils.Navigation
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
