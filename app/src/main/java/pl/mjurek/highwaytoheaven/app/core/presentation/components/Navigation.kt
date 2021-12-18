@@ -7,16 +7,16 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import pl.mjurek.highwaytoheaven.app.core.util.Screen
-import pl.mjurek.highwaytoheaven.app.domain.fake.getFakeGrades
-import pl.mjurek.highwaytoheaven.app.domain.fake.getFakeNotification
 import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.login.LoginScreen
 import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.splash.SplashScreen
-import pl.mjurek.highwaytoheaven.app.presentation.home.HomeScreen
-import pl.mjurek.highwaytoheaven.app.presentation.home.UserAction
-import pl.mjurek.highwaytoheaven.app.presentation.home.grades.GradesScreen
-import pl.mjurek.highwaytoheaven.app.presentation.home.time_table.TimeTable
-import pl.mjurek.highwaytoheaven.app.presentation.notifications.NotificationsScreen
-import pl.mjurek.highwaytoheaven.app.presentation.settings.SettingsScreen
+import pl.mjurek.highwaytoheaven.app.feature_home.domain.fake.getFakeGrades
+import pl.mjurek.highwaytoheaven.app.feature_home.domain.fake.getFakeNotification
+import pl.mjurek.highwaytoheaven.app.feature_home.presentation.HomeScreen
+import pl.mjurek.highwaytoheaven.app.feature_home.presentation.UserAction
+import pl.mjurek.highwaytoheaven.app.feature_home.presentation.grades.GradesScreen
+import pl.mjurek.highwaytoheaven.app.feature_home.presentation.time_table.TimeTable
+import pl.mjurek.highwaytoheaven.app.feature_notifications.presentation.notifications.NotificationsScreen
+import pl.mjurek.highwaytoheaven.app.feature_settings.presentation.SettingsScreen
 
 
 @ExperimentalFoundationApi
@@ -43,7 +43,7 @@ fun Navigation(
             )
         }
         composable(Screen.Home.route) {
-            HomeScreen(navController, userActions())
+            HomeScreen(navController)
         }
         composable(Screen.Notifications.route) {
             NotificationsScreen(getFakeNotification())

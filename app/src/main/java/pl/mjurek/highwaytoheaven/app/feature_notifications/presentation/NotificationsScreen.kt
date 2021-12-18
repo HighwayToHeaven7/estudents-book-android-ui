@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.notifications
+package pl.mjurek.highwaytoheaven.app.feature_notifications.presentation.notifications
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,8 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import pl.mjurek.highwaytoheaven.app.R
-import pl.mjurek.highwaytoheaven.app.domain.fake.getFakeNotification
-import pl.mjurek.highwaytoheaven.app.domain.model.notification.Notification
+import pl.mjurek.highwaytoheaven.app.feature_home.domain.fake.getFakeNotification
+import pl.mjurek.highwaytoheaven.app.feature_home.domain.model.notification.Notification
 import pl.mjurek.highwaytoheaven.app.presentation.ui.AppTheme
 
 @Composable

@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.home
+package pl.mjurek.highwaytoheaven.app.feature_home.presentation
 
 data class UserAction(
     val name: String,

@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.home
+package pl.mjurek.highwaytoheaven.app.feature_home.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
@@ -15,11 +15,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import pl.mjurek.highwaytoheaven.app.R
+import pl.mjurek.highwaytoheaven.app.core.presentation.utils.userActions
 
 @Composable
 fun HomeScreen(
     navController: NavController,
-    userActions: List<UserAction>
+    userActions: List<UserAction> = userActions()
 ) {
     Column(
         modifier = Modifier.fillMaxWidth(),

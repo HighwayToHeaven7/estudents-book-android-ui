@@ -27,12 +27,11 @@ import kotlinx.coroutines.flow.collectLatest
 import pl.mjurek.highwaytoheaven.app.R
 import pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme.SpaceMedium
 import pl.mjurek.highwaytoheaven.app.core.presentation.utils.UiEvent
+import pl.mjurek.highwaytoheaven.app.core.presentation.utils.asString
 import pl.mjurek.highwaytoheaven.app.core.util.Constants
 import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.util.AuthError
 import pl.mjurek.highwaytoheaven.app.presentation.components.StandardTextField
 import pl.mjurek.highwaytoheaven.app.presentation.ui.whiteBackground
-
-import pl.mjurek.highwaytoheaven.app.core.presentation.utils.asString
 
 @Composable
 fun LoginScreen(

@@ -1,8 +1,8 @@
-package pl.mjurek.highwaytoheaven.app.domain.fake
+package pl.mjurek.highwaytoheaven.app.feature_home.domain.fake
 
 import android.util.Log
-import pl.mjurek.highwaytoheaven.app.domain.model.notification.Notification
-import pl.mjurek.highwaytoheaven.app.presentation.home.grades.CollapsableSection
+import pl.mjurek.highwaytoheaven.app.feature_home.domain.model.notification.Notification
+import pl.mjurek.highwaytoheaven.app.feature_home.presentation.grades.CollapsableSection
 import java.util.*
 
 fun getFakeNotification(): List<Notification> {

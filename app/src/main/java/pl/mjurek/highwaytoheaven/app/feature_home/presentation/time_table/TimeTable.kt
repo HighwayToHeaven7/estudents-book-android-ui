@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.settings
+package pl.mjurek.highwaytoheaven.app.feature_home.presentation.time_table
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +8,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 
 @Composable
-fun SettingsScreen() {
+fun TimeTable() {
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
     ) {
-        Text(text = "Settings screen")
+        Text(text = "TIME TABLE screen")
     }
 }

@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.presentation.home.grades
+package pl.mjurek.highwaytoheaven.app.feature_home.presentation.grades
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
