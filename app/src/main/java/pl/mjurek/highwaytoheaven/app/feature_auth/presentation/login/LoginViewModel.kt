@@ -52,34 +52,35 @@ class LoginViewModel @Inject constructor(
             }
             is LoginEvent.Login -> {
                 viewModelScope.launch {
-                    _loginState.value = loginState.value.copy(isLoading = true)
-                    val loginResult = loginUseCase(
-                        email = emailState.value.text,
-                        password = passwordState.value.text
-                    )
-                    _loginState.value = loginState.value.copy(isLoading = false)
-                    if (loginResult.emailError != null) {
-                        _emailState.value = emailState.value.copy(
-                            error = loginResult.emailError
-                        )
-                    }
-                    if (loginResult.passwordError != null) {
-                        _passwordState.value = _passwordState.value.copy(
-                            error = loginResult.passwordError
-                        )
-                    }
-                    when (loginResult.result) {
-                        is Resource.Success -> {
-                            _eventFlow.emit(UiEvent.OnLogin)
-                        }
-                        is Resource.Error -> {
-                            _eventFlow.emit(
-                                UiEvent.ShowSnackbar(
-                                    loginResult.result.uiText ?: UiText.unknownError()
-                                )
-                            )
-                        }
-                    }
+                    _eventFlow.emit(UiEvent.OnLogin)
+//                    _loginState.value = loginState.value.copy(isLoading = true)
+//                    val loginResult = loginUseCase(
+//                        email = emailState.value.text,
+//                        password = passwordState.value.text
+//                    )
+//                    _loginState.value = loginState.value.copy(isLoading = false)
+//                    if (loginResult.emailError != null) {
+//                        _emailState.value = emailState.value.copy(
+//                            error = loginResult.emailError
+//                        )
+//                    }
+//                    if (loginResult.passwordError != null) {
+//                        _passwordState.value = _passwordState.value.copy(
+//                            error = loginResult.passwordError
+//                        )
+//                    }
+//                    when (loginResult.result) {
+//                        is Resource.Success -> {
+//                            _eventFlow.emit(UiEvent.OnLogin)
+//                        }
+//                        is Resource.Error -> {
+//                            _eventFlow.emit(
+//                                UiEvent.ShowSnackbar(
+//                                    loginResult.result.uiText ?: UiText.unknownError()
+//                                )
+//                            )
+//                        }
+//                    }
                 }
             }
         }

@@ -1,6 +1,7 @@
 package pl.mjurek.highwaytoheaven.app.core.presentation.utils
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -20,13 +21,26 @@ import pl.mjurek.highwaytoheaven.app.presentation.settings.SettingsScreen
 
 @ExperimentalFoundationApi
 @Composable
-fun Navigation(navController: NavHostController) {
+fun Navigation(
+    navController: NavHostController,
+    scaffoldState: ScaffoldState
+) {
     NavHost(navController = navController, startDestination = Screen.Splash.route) {
         composable(Screen.Splash.route) {
             SplashScreen(navController)
         }
         composable(Screen.Login.route) {
-            LoginScreen(navController)
+            LoginScreen(
+                onNavigate = navController::navigate,
+                onLogin = {
+                    navController.popBackStack(
+                        route = Screen.Login.route,
+                        inclusive = true
+                    )
+                    navController.navigate(route = Screen.Home.route)
+                },
+                scaffoldState = scaffoldState
+            )
         }
         composable(Screen.Home.route) {
             HomeScreen(navController, userActions())

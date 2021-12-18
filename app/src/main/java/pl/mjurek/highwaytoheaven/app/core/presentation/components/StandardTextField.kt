@@ -25,7 +25,6 @@ import pl.mjurek.highwaytoheaven.app.R
 import pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme.IconSizeMedium
 import pl.mjurek.highwaytoheaven.app.core.util.TestTags
 
-//colors = MaterialTheme.colors.onSurface,
 @Composable
 fun StandardTextField(
     modifier: Modifier = Modifier,

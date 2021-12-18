@@ -5,11 +5,20 @@ import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ExperimentalMaterialApi
-import androidx.compose.material.Scaffold
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.navigation.NavBackStackEntry
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
+import pl.mjurek.highwaytoheaven.app.core.presentation.components.StandardScaffold
 import pl.mjurek.highwaytoheaven.app.core.presentation.utils.Navigation
+import pl.mjurek.highwaytoheaven.app.core.util.Screen
 import pl.mjurek.highwaytoheaven.app.presentation.ui.AppTheme
 
 @AndroidEntryPoint
@@ -21,48 +30,37 @@ class MainActivity : ComponentActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         setContent {
             AppTheme {
-                val navController = rememberNavController()
-                Scaffold(
-//                    bottomBar = {
-//                        BottomNavigationBar(
-//                            items = listOf(
-//                                BottomNavItem(
-//                                    name = "Home",
-//                                    route = "home",
-//                                    icon = Icons.Default.Home
-//                                ),
-//                                BottomNavItem(
-//                                    name = "Notifications",
-//                                    route = "notifications",
-//                                    icon = Icons.Default.Notifications,
-//                                    badgeCount = 3
-//                                ),
-//                                BottomNavItem(
-//                                    name = "Settings",
-//                                    route = "settings",
-//                                    icon = Icons.Default.Settings
-//                                )
-//                            ),
-//                            navController = navController,
-//                            onItemClick = {
-//                                navController.navigate(it.route)
-//                            }
-//                        )
-//                    }
+                Surface(
+                    color = MaterialTheme.colors.background,
+                    modifier = Modifier.fillMaxSize()
                 ) {
-                    Navigation(navController = navController)
+                    val navController = rememberNavController()
+                    val navBackStackEntry by navController.currentBackStackEntryAsState()
+                    val scaffoldState = rememberScaffoldState()
+
+                    StandardScaffold(
+                        navController = navController,
+                        state = scaffoldState,
+                        modifier = Modifier.fillMaxSize(),
+                        shouldShowBottomBar = shouldShowBottomBar(navBackStackEntry)
+                    ) {
+                        Navigation(navController = navController, scaffoldState = scaffoldState)
+                    }
+
                 }
             }
         }
     }
+
+    private fun shouldShowBottomBar(navBackStackEntry: NavBackStackEntry?): Boolean {
+        val doesRouteMatch = navBackStackEntry?.destination?.route in listOf(
+            Screen.Home.route,
+            Screen.Settings.route,
+            Screen.Notifications.route
+        )
+//        val isOwnProfile = navBackStackEntry?.destination?.route == "${Screen.ProfileScreen.route}?userId={userId}" &&
+//                backStackEntry.arguments?.getString("userId") == null
+        return doesRouteMatch
+        /** || isOwnProfile **/
+    }
 }
-
-
-//
-//@Preview(showBackground = true)
-//@Composable
-//fun DefaultPreview() {
-//    AppTheme {
-//        Section("Android")
-//    }
-//}
