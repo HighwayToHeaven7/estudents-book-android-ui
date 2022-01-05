@@ -15,7 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import pl.mjurek.highwaytoheaven.app.R
-import pl.mjurek.highwaytoheaven.app.core.presentation.utils.userActions
+import pl.mjurek.highwaytoheaven.app.core.presentation.components.userActions
 
 @Composable
 fun HomeScreen(

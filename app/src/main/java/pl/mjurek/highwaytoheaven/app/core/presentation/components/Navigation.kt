@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.core.presentation.utils
+package pl.mjurek.highwaytoheaven.app.core.presentation.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.material.ScaffoldState
