@@ -16,7 +16,6 @@ import pl.mjurek.highwaytoheaven.app.feature_home.presentation.HomeScreen
 import pl.mjurek.highwaytoheaven.app.feature_home.presentation.grades.GradesScreen
 import pl.mjurek.highwaytoheaven.app.feature_home.presentation.user_data.UserDataScreen
 import pl.mjurek.highwaytoheaven.app.feature_notifications.presentation.notifications.NotificationsScreen
-import pl.mjurek.highwaytoheaven.app.feature_settings.presentation.SettingsScreen
 
 
 @ExperimentalMaterialApi
@@ -49,9 +48,9 @@ fun Navigation(
         composable(Screen.Notifications.route) {
             NotificationsScreen(getFakeNotification())
         }
-        composable(Screen.Settings.route) {
-            SettingsScreen()
-        }
+//        composable(Screen.Settings.route) {
+//            SettingsScreen()
+//        }
         composable(Screen.Grades.route) {
             GradesScreen(getFakeGrades())
         }

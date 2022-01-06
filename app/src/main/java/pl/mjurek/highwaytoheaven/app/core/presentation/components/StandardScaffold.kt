@@ -5,8 +5,8 @@ import androidx.compose.material.Scaffold
 import androidx.compose.material.ScaffoldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Logout
 import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
@@ -55,9 +55,9 @@ fun getButtonNavItems(): List<BottomNavItem> {
             badgeCount = 3
         ),
         BottomNavItem(
-            name = "Settings",
-            route = "settings",
-            icon = Icons.Default.Settings
+            name = "Logout",
+            route = Screen.Login.route,
+            icon = Icons.Default.Logout
         )
     )
 }

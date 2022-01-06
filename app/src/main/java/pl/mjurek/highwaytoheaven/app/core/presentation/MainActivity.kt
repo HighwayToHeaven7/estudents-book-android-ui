@@ -53,11 +53,8 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun shouldShowBottomBar(navBackStackEntry: NavBackStackEntry?): Boolean {
-        return navBackStackEntry?.destination?.route in listOf(
-            Screen.Home.route,
-            Screen.Settings.route,
-            Screen.Notifications.route,
-            Screen.UserDetail.route
+        return navBackStackEntry?.destination?.route !in listOf(
+            Screen.Login.route,
         )
     }
 }

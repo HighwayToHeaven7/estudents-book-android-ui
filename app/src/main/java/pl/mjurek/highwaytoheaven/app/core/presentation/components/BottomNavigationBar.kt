@@ -11,6 +11,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import pl.mjurek.highwaytoheaven.app.core.util.Screen
 
 @ExperimentalMaterialApi
 @Composable
@@ -30,13 +31,22 @@ fun BottomNavigationBar(
             val isSelected = item.route == backStackEntry.value?.destination?.route
             BottomNavigationItem(
                 selected = isSelected,
-                onClick = { onItemClick(item) },
+                onClick = {
+                    if (item.route !== Screen.Settings.route) onItemClick(item) else click(
+                        onItemClick(item)
+                    )
+                },
                 selectedContentColor = Color.Green,
                 unselectedContentColor = Color.Gray,
                 icon = { Icons(isSelected, item) }
             )
         }
     }
+}
+
+fun click(onItemClick: Unit) {
+    //logout operation
+    onItemClick
 }
 
 @ExperimentalMaterialApi
