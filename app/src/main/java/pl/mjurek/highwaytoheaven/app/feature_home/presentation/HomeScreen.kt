@@ -27,7 +27,7 @@ fun HomeScreen(
         ),
         UserAction(
             name = "Moje dane",
-            navigation = Screen.SchoolActivities.route,
+            navigation = Screen.UserDetail.route,
             painter = painterResource(id = R.drawable.user_data)
         )
     )

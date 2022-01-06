@@ -14,7 +14,7 @@ import pl.mjurek.highwaytoheaven.app.feature_home.domain.fake.getFakeGrades
 import pl.mjurek.highwaytoheaven.app.feature_home.domain.fake.getFakeNotification
 import pl.mjurek.highwaytoheaven.app.feature_home.presentation.HomeScreen
 import pl.mjurek.highwaytoheaven.app.feature_home.presentation.grades.GradesScreen
-import pl.mjurek.highwaytoheaven.app.feature_home.presentation.time_table.TimeTable
+import pl.mjurek.highwaytoheaven.app.feature_home.presentation.user_data.UserDataScreen
 import pl.mjurek.highwaytoheaven.app.feature_notifications.presentation.notifications.NotificationsScreen
 import pl.mjurek.highwaytoheaven.app.feature_settings.presentation.SettingsScreen
 
@@ -55,8 +55,8 @@ fun Navigation(
         composable(Screen.Grades.route) {
             GradesScreen(getFakeGrades())
         }
-        composable(Screen.SchoolActivities.route) {
-            TimeTable()
+        composable(Screen.UserDetail.route) {
+            UserDataScreen()
         }
     }
 }

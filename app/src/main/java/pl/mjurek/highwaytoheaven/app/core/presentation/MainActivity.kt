@@ -56,7 +56,8 @@ class MainActivity : ComponentActivity() {
         return navBackStackEntry?.destination?.route in listOf(
             Screen.Home.route,
             Screen.Settings.route,
-            Screen.Notifications.route
+            Screen.Notifications.route,
+            Screen.UserDetail.route
         )
     }
 }

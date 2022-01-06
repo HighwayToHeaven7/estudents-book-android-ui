@@ -1,6 +1,6 @@
 package pl.mjurek.highwaytoheaven.app.feature_auth.domain.use_case
 
-import pl.mjurek.highwaytoheaven.app.feature_auth.domain.models.LoginResult
+import pl.mjurek.highwaytoheaven.app.feature_auth.domain.models.login.LoginResult
 import pl.mjurek.highwaytoheaven.app.feature_auth.domain.repository.AuthRepository
 import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.util.AuthError
 
