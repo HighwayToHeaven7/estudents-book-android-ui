@@ -20,4 +20,7 @@
     <string name="date_of_birth">Data urodzenia</string>
     <string name="place_of_birth">Miejsce urodzenia</string>
     <string name="telephone">Telefon</string>
+    <string name="another_telephone">Inny telefon</string>
+    <string name="email">E-mail</string>
+    <string name="correspondence_address">Adres korespondencyjny</string>
 </resources>

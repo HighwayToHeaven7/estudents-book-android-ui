@@ -58,6 +58,7 @@ fun UserDataScreen(
     )
 ) {
     val collapsedState = remember(tabs) { tabs.map { true }.toMutableStateList() }
+    HeaderSubScreen()
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -103,6 +104,12 @@ fun UserDataScreen(
             }
         }
     }
+}
+
+@Composable
+fun HeaderSubScreen() {
+
+
 }
 
 @Composable
@@ -153,6 +160,18 @@ fun AddressDataSumScreen(address: AddressData) {
     RowWithData(
         nameLabel = stringResource(id = R.string.telephone),
         value = address.phoneNumber
+    )
+    RowWithData(
+        nameLabel = stringResource(id = R.string.another_telephone),
+        value = address.anotherPhoneNumber
+    )
+    RowWithData(
+        nameLabel = stringResource(id = R.string.email),
+        value = address.email
+    )
+    RowWithData(
+        nameLabel = stringResource(id = R.string.correspondence_address),
+        value = address.correspondenceAddress
     )
 }
 
