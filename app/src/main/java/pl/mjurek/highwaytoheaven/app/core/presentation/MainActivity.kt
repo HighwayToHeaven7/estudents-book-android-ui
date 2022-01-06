@@ -16,8 +16,8 @@ import androidx.navigation.NavBackStackEntry
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import dagger.hilt.android.AndroidEntryPoint
-import pl.mjurek.highwaytoheaven.app.core.presentation.components.StandardScaffold
 import pl.mjurek.highwaytoheaven.app.core.presentation.components.Navigation
+import pl.mjurek.highwaytoheaven.app.core.presentation.components.StandardScaffold
 import pl.mjurek.highwaytoheaven.app.core.util.Screen
 import pl.mjurek.highwaytoheaven.app.presentation.ui.AppTheme
 

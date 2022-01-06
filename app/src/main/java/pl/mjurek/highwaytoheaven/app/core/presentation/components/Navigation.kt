@@ -1,6 +1,7 @@
 package pl.mjurek.highwaytoheaven.app.core.presentation.components
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -12,13 +13,13 @@ import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.splash.SplashScre
 import pl.mjurek.highwaytoheaven.app.feature_home.domain.fake.getFakeGrades
 import pl.mjurek.highwaytoheaven.app.feature_home.domain.fake.getFakeNotification
 import pl.mjurek.highwaytoheaven.app.feature_home.presentation.HomeScreen
-import pl.mjurek.highwaytoheaven.app.feature_home.presentation.UserAction
 import pl.mjurek.highwaytoheaven.app.feature_home.presentation.grades.GradesScreen
 import pl.mjurek.highwaytoheaven.app.feature_home.presentation.time_table.TimeTable
 import pl.mjurek.highwaytoheaven.app.feature_notifications.presentation.notifications.NotificationsScreen
 import pl.mjurek.highwaytoheaven.app.feature_settings.presentation.SettingsScreen
 
 
+@ExperimentalMaterialApi
 @ExperimentalFoundationApi
 @Composable
 fun Navigation(
@@ -60,15 +61,3 @@ fun Navigation(
     }
 }
 
-fun userActions(): List<UserAction> {
-    return listOf(
-        UserAction(
-            name = "Oceny",
-            navigation = Screen.Grades.route
-        ),
-        UserAction(
-            name = "Moje zajęcia",
-            navigation = Screen.SchoolActivities.route
-        )
-    )
-}
