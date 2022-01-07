@@ -4,10 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.ScaffoldState
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -27,7 +24,6 @@ import kotlinx.coroutines.flow.collectLatest
 import pl.mjurek.highwaytoheaven.app.R
 import pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme.SpaceMedium
 import pl.mjurek.highwaytoheaven.app.core.presentation.utils.UiEvent
-import pl.mjurek.highwaytoheaven.app.core.presentation.utils.asString
 import pl.mjurek.highwaytoheaven.app.core.util.Constants
 import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.util.AuthError
 import pl.mjurek.highwaytoheaven.app.presentation.components.StandardTextField
@@ -43,7 +39,7 @@ fun LoginScreen(
     val image = painterResource(id = R.drawable.login_image)
     val emailState = viewModel.emailState.value
     val passwordState = viewModel.passwordState.value
-    val state = viewModel.loginState.value
+    val loginState = viewModel.loginState.value
     val context = LocalContext.current
 
     LaunchedEffect(key1 = true) {
@@ -51,7 +47,8 @@ fun LoginScreen(
             when (event) {
                 is UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
-                        message = event.uiText.asString(context)
+//                        message = event.uiText.asString(context)
+                        message = "sadasdas"
                     )
                 }
                 is UiEvent.Navigate -> {
@@ -72,11 +69,15 @@ fun LoginScreen(
                 .fillMaxSize()
                 .background(Color.White), contentAlignment = Alignment.TopStart
         ) {
+            if (loginState.isLoading) {
+                LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+            }
             Image(
                 painter = image, contentDescription = null,
                 modifier = Modifier
                     .fillMaxHeight(Constants.LOGIN_SIZE_ICON)
                     .fillMaxWidth()
+                    .padding(top = 4.dp)
             )
         }
 
@@ -123,7 +124,7 @@ fun LoginScreen(
                     is AuthError.FieldEmpty -> stringResource(id = R.string.error_field_empty)
                     else -> ""
                 },
-                isPasswordVisible = state.isPasswordVisible,
+                isPasswordVisible = loginState.isPasswordVisible,
                 onPasswordToggleClick = {
                     viewModel.onEvent(LoginEvent.TogglePasswordVisibility)
                 }
@@ -132,9 +133,6 @@ fun LoginScreen(
             Button(
                 onClick = {
                     viewModel.onEvent(LoginEvent.Login)
-//                    navController.navigate(
-//                        Screen.Home.route
-//                    )
                 },
                 modifier = Modifier
                     .fillMaxWidth(0.85f)
@@ -146,6 +144,7 @@ fun LoginScreen(
                     fontSize = 20.sp
                 )
             }
+
         }
     }
 }

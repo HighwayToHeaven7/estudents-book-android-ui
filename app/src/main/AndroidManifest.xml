@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.mjurek.highwaytoheaven.app">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name=".StudentBookApplication"
         android:allowBackup="true"
