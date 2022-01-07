@@ -21,28 +21,27 @@ class AuthRepositoryImpl(
         val request = LoginRequest(email, password)
         return try {
             val response = api.login(request)
-            if (response.successful) {
-                response.data?.let { authResponse ->
-                    println("Overriding token with ${authResponse.token}")
-                    sharedPreferences.edit()
-                        .putString(Constants.KEY_JWT_TOKEN, authResponse.token)
-                        .putString(Constants.KEY_USER_ID, authResponse.userUuid)
-                        .apply()
-                }
-                Resource.Success(Unit)
-            } else {
-                response.message?.let { msg ->
-                    Resource.Error(UiText.DynamicString(msg))
-                } ?: Resource.Error(UiText.StringResource(R.string.error_unknown))
-            }
+
+            println("Overriding token with ${response.token}")
+            sharedPreferences.edit()
+                .putString(Constants.KEY_JWT_TOKEN, response.token)
+                .putString(Constants.KEY_USER_ID, response.userUuid)
+                .apply()
+            Resource.Success(Unit)
         } catch (e: IOException) {
+            e.printStackTrace()
             Resource.Error(
                 uiText = UiText.StringResource(R.string.error_couldnt_reach_server)
             )
         } catch (e: HttpException) {
-            Resource.Error(
-                uiText = UiText.StringResource(R.string.oops_something_went_wrong)
-            )
+            if (e.code().equals(403)) {
+                Resource.Error(
+                    uiText = UiText.StringResource(R.string.wrong_email_or_password)
+                )
+            } else
+                Resource.Error(
+                    uiText = UiText.StringResource(R.string.oops_something_went_wrong)
+                )
         }
     }
 }
