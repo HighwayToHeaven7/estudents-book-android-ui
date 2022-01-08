@@ -1,4 +1,4 @@
-package pl.mjurek.highwaytoheaven.app.feature_home.domain.states
+package pl.mjurek.highwaytoheaven.app.core.domain.states
 
 import pl.mjurek.highwaytoheaven.app.core.util.Error
 

@@ -12,7 +12,7 @@ import pl.mjurek.highwaytoheaven.app.core.presentation.utils.UiEvent
 import pl.mjurek.highwaytoheaven.app.core.util.Resource
 import pl.mjurek.highwaytoheaven.app.core.util.UiText
 import pl.mjurek.highwaytoheaven.app.feature_auth.domain.use_case.LoginUseCase
-import pl.mjurek.highwaytoheaven.app.feature_home.domain.states.StandardTextFieldState
+import pl.mjurek.highwaytoheaven.app.core.domain.states.StandardTextFieldState
 import javax.inject.Inject
 
 @HiltViewModel

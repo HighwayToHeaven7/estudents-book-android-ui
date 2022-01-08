@@ -9,7 +9,10 @@ data class StudentData(
 )
 
 data class Contact(
-    @SerializedName("phoneNumber") var phoneNumber: String? = null
+    @SerializedName("phoneNumber") var phoneNumber: String? = null,
+    @SerializedName("anotherPhoneNumber") var anotherPhoneNumber: String? = null,
+    @SerializedName("email") var email: String? = null,
+    @SerializedName("correspondenceAddress") var correspondenceAddress: String? = null
 )
 
 data class PersonalData(
@@ -18,6 +21,14 @@ data class PersonalData(
     @SerializedName("surname") var surname: String? = null,
     @SerializedName("email") var email: String? = null,
     @SerializedName("role") var role: String? = null,
+    @SerializedName("familyName") var familyName: String? = null,
+    @SerializedName("sex") var sex: String? = null,
+    @SerializedName("residence") var residence: String? = null,
+    @SerializedName("studentsAlbumNumber") var studentsAlbumNumber: String? = null,
+    @SerializedName("province") var province: String? = null,
+    @SerializedName("personalIdentityNumber") var personalIdentityNumber: String? = null,
+    @SerializedName("dateOfBirth") var dateOfBirth: String? = null,
+    @SerializedName("placeOfBirth") var placeOfBirth: String? = null,
     @SerializedName("contact") var contact: Contact? = Contact()
 )
 

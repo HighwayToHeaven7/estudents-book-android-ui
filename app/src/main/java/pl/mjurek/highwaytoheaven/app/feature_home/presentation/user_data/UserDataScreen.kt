@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
+import androidx.compose.material.LinearProgressIndicator
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
@@ -24,31 +25,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
 import pl.mjurek.highwaytoheaven.app.R
 import pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme.SpaceLarge
 import pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme.SpaceMedium
-import pl.mjurek.highwaytoheaven.app.feature_home.domain.model.student.AddressData
-import pl.mjurek.highwaytoheaven.app.feature_home.domain.model.student.StudentDetailDto
+import pl.mjurek.highwaytoheaven.app.feature_home.domain.model.student.ContactData
+import pl.mjurek.highwaytoheaven.app.feature_home.domain.model.student.StudentDetailScreenDto
 
 @Composable
 fun UserDataScreen(
-    student: StudentDetailDto = StudentDetailDto(
-        nameAndSurname = "Jan, Jacek Stępień",
-        familyName = "-",
-        sex = "Mężczyzna",
-        studentsAlbumNumber = "D/123321",
-        residence = "Lenartowicza Teofila 13 Krakow, Poland",
-        province = "Małopolskie",
-        personalIdentityNumber = "48081375648",
-        dateOfBirth = "20-10-1995",
-        placeOfBirth = "Kraków",
-        address = AddressData(
-            phoneNumber = "+48 678143876",
-            anotherPhoneNumber = "-",
-            correspondenceAddress = "Lenartowicza Teofila 13/6 Krakow, Poland",
-            email = "example.email@gmail.com"
-        )
-    ),
+    viewModel: UserDetailViewModel = hiltViewModel(),
+    student: StudentDetailScreenDto = viewModel.userDetailDataState.value,
     tabs: List<UserInfoTabs> = listOf(
         UserInfoTabs(
             title = "DANE PODSTAWOWE",
@@ -57,12 +44,13 @@ fun UserDataScreen(
         ),
         UserInfoTabs(
             title = "DANE TELEADRESOWE",
-            content = { AddressDataSumScreen(address = student.address) }
+            content = { student.contactData?.let { AddressDataSumScreen(address = it) } }
         )
     )
 ) {
+    val loginState = viewModel.loadingState.value
     val collapsedState = remember(tabs) { tabs.map { true }.toMutableStateList() }
-    HeaderSubScreen()
+    HeaderSubScreen(loginState)
 
     Column(modifier = Modifier.padding(top = 70.dp)) {
         LazyColumn(
@@ -114,7 +102,7 @@ fun UserDataScreen(
 }
 
 @Composable
-fun HeaderSubScreen() {
+fun HeaderSubScreen(loading: Boolean) {
 
     Box(
         modifier = Modifier
@@ -124,6 +112,9 @@ fun HeaderSubScreen() {
             .background(color = Color(0xFF95CFFF))
 
     ) {
+        if (loading) {
+            LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+        }
         Text(
             "MOJE DANE OSOBOWE",
             fontWeight = FontWeight.Bold,
@@ -145,11 +136,13 @@ fun HeaderSubScreen() {
 }
 
 @Composable
-fun BasicPersonalDataSubScreen(student: StudentDetailDto) {
-    RowWithData(
+fun BasicPersonalDataSubScreen(student: StudentDetailScreenDto) {
+    student.nameAndSurname?.let {
+        RowWithData(
         nameLabel = stringResource(id = R.string.surname_and_login),
-        value = student.nameAndSurname
+        value = it
     )
+    }
     RowWithData(
         nameLabel = stringResource(id = R.string.family_name),
         value = student.familyName
@@ -188,7 +181,7 @@ fun BasicPersonalDataSubScreen(student: StudentDetailDto) {
 }
 
 @Composable
-fun AddressDataSumScreen(address: AddressData) {
+fun AddressDataSumScreen(address: ContactData) {
     RowWithData(
         nameLabel = stringResource(id = R.string.telephone),
         value = address.phoneNumber

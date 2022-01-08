@@ -70,6 +70,10 @@ dependencies {
     //Navigation
     implementation "androidx.navigation:navigation-compose:2.4.0-alpha06"
 
+    //mapstruct
+    implementation("org.mapstruct:mapstruct:1.4.2.Final")
+    kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
+
     // Timber
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
