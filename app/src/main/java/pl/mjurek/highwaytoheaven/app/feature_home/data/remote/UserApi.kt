@@ -10,6 +10,6 @@ interface UserApi {
     suspend fun getUserData(): StudentData
 
     companion object {
-        const val BASE_URL = "http://192.168.1.29:8080"
+        const val BASE_URL = "http://192.168.1.42:8080"
     }
 }

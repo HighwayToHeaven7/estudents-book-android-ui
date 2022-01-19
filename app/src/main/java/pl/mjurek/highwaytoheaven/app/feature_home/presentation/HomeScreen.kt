@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import pl.mjurek.highwaytoheaven.app.R
 import pl.mjurek.highwaytoheaven.app.core.presentation.ui.theme.SpaceLarge
@@ -40,7 +41,8 @@ fun HomeScreen(
     ) {
         Image(
             painter = painterResource(id = R.drawable.students_image),
-            contentDescription = "Main menu icon"
+            contentDescription = "Main menu icon",
+            modifier = Modifier.fillMaxWidth()
         )
         Spacer(modifier = Modifier.height(SpaceLarge))
         LazyColumn(

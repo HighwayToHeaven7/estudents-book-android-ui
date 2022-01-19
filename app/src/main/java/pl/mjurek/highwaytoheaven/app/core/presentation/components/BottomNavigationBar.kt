@@ -1,6 +1,8 @@
 package pl.mjurek.highwaytoheaven.app.core.presentation.components
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,18 +30,22 @@ fun BottomNavigationBar(
         elevation = 5.dp
     ) {
         items.forEach { item ->
-            val isSelected = item.route == backStackEntry.value?.destination?.route
-            BottomNavigationItem(
-                selected = isSelected,
-                onClick = {
-                    if (item.route !== Screen.Settings.route) onItemClick(item) else click(
-                        onItemClick(item)
-                    )
-                },
-                selectedContentColor = Color.Green,
-                unselectedContentColor = Color.Gray,
-                icon = { Icons(isSelected, item) }
-            )
+            if (item.name.equals("Notifications")) {
+                Spacer(modifier = Modifier.width(10.dp))
+            } else {
+                val isSelected = item.route == backStackEntry.value?.destination?.route
+                BottomNavigationItem(
+                    selected = isSelected,
+                    onClick = {
+                        if (item.route !== Screen.Settings.route) onItemClick(item) else click(
+                            onItemClick(item)
+                        )
+                    },
+                    selectedContentColor = Color.Green,
+                    unselectedContentColor = Color.Gray,
+                    icon = { Icons(isSelected, item) }
+                )
+            }
         }
     }
 }

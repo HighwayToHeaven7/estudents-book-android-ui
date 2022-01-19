@@ -4,15 +4,15 @@ import com.google.gson.annotations.SerializedName
 
 data class StudentData(
     @SerializedName("id") var id: String? = null,
-    @SerializedName("personalData") var personalData: PersonalData? = PersonalData(),
-    @SerializedName("subjectCards") var subjectCards: ArrayList<SubjectCards> = arrayListOf()
+    @SerializedName("personal_data") var personalData: PersonalData? = PersonalData(),
+    @SerializedName("subject_cards") var subjectCards: ArrayList<SubjectCards> = arrayListOf()
 )
 
 data class Contact(
-    @SerializedName("phoneNumber") var phoneNumber: String? = null,
-    @SerializedName("anotherPhoneNumber") var anotherPhoneNumber: String? = null,
+    @SerializedName("phone_number") var phoneNumber: String? = null,
+    @SerializedName("another_phone_number") var anotherPhoneNumber: String? = null,
     @SerializedName("email") var email: String? = null,
-    @SerializedName("correspondenceAddress") var correspondenceAddress: String? = null
+    @SerializedName("correspondence_address") var correspondenceAddress: String? = null
 )
 
 data class PersonalData(
@@ -21,14 +21,14 @@ data class PersonalData(
     @SerializedName("surname") var surname: String? = null,
     @SerializedName("email") var email: String? = null,
     @SerializedName("role") var role: String? = null,
-    @SerializedName("familyName") var familyName: String? = null,
+    @SerializedName("family_name") var familyName: String? = null,
     @SerializedName("sex") var sex: String? = null,
     @SerializedName("residence") var residence: String? = null,
-    @SerializedName("studentsAlbumNumber") var studentsAlbumNumber: String? = null,
+    @SerializedName("students_album_number") var studentsAlbumNumber: String? = null,
     @SerializedName("province") var province: String? = null,
-    @SerializedName("personalIdentityNumber") var personalIdentityNumber: String? = null,
-    @SerializedName("dateOfBirth") var dateOfBirth: String? = null,
-    @SerializedName("placeOfBirth") var placeOfBirth: String? = null,
+    @SerializedName("personal_identity_number") var personalIdentityNumber: String? = null,
+    @SerializedName("date_of_birth") var dateOfBirth: String? = null,
+    @SerializedName("place_of_birth") var placeOfBirth: String? = null,
     @SerializedName("contact") var contact: Contact? = Contact()
 )
 
