@@ -5,4 +5,5 @@ import pl.mjurek.highwaytoheaven.app.feature_home.data.remote.response.student_d
 
 interface UserRepository {
     suspend fun getStudentDetails(): Resource<StudentData>
+
 }
