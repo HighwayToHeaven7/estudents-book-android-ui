@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
 
 @ExperimentalFoundationApi
 @Composable
-fun GradesScreen(grades: List<CollapsableSection>, modifier: Modifier = Modifier) {
+fun GradesScreen(grades: List<SubjectDto>, modifier: Modifier = Modifier) {
     val collapsedState = remember(grades) { grades.map { true }.toMutableStateList() }
 
     LazyColumn(modifier) {
@@ -88,28 +88,28 @@ fun GradesScreen(grades: List<CollapsableSection>, modifier: Modifier = Modifier
                     )
                     Spacer(modifier = Modifier.size(15.dp))
                     Text(
-                        dataItem.title, //subjectName
+                        dataItem.subject, //subjectName
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .padding(vertical = 10.dp)
                             .weight(1f)
                     )
                     Text(
-                        "A", //groupName
+                        dataItem.semester,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .padding(vertical = 10.dp)
                             .weight(1f)
                     )
                     Text(
-                        "VI", //semestrNumber
+                        dataItem.semester,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .padding(vertical = 10.dp)
                             .weight(1f)
                     )
                     Text(
-                        "4,5",// expectedGrade
+                        dataItem.expectedGrade,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .padding(vertical = 10.dp)
@@ -123,21 +123,21 @@ fun GradesScreen(grades: List<CollapsableSection>, modifier: Modifier = Modifier
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Spacer(modifier = Modifier.size(30.dp))
                         Text(
-                            "4.0",
+                            row.grade,
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(vertical = 10.dp)
                         )
 //                        Spacer(modifier = Modifier.size(60.dp))
                         Text(
-                            "0.75",
+                            row.weight,
                             modifier = Modifier
                                 .weight(1f)
                                 .padding(vertical = 10.dp)
                         )
 //                        Spacer(modifier = Modifier.size(10.dp))
                         Text(
-                            "kolokwium",
+                            row.description,
                             modifier = Modifier
                                 .padding(vertical = 10.dp, horizontal = 10.dp)
                         )
@@ -149,4 +149,3 @@ fun GradesScreen(grades: List<CollapsableSection>, modifier: Modifier = Modifier
     }
 }
 
-data class CollapsableSection(val title: String, val rows: List<String>)
