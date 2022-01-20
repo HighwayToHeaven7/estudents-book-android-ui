@@ -22,10 +22,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import pl.mjurek.highwaytoheaven.app.feature_home.presentation.user_data.UserDetailViewModel
 
 @ExperimentalFoundationApi
 @Composable
-fun GradesScreen(grades: List<SubjectDto>, modifier: Modifier = Modifier) {
+fun GradesScreen(
+    viewModel: GradesViewModel = hiltViewModel(),
+    grades: List<SubjectDto> = viewModel.studentSubjectState.value, modifier: Modifier = Modifier) {
     val collapsedState = remember(grades) { grades.map { true }.toMutableStateList() }
 
     LazyColumn(modifier) {
@@ -36,28 +40,28 @@ fun GradesScreen(grades: List<SubjectDto>, modifier: Modifier = Modifier) {
                 ) {
                     Spacer(modifier = Modifier.size(15.dp))
                     Text(
-                        "Przedmiot", //subjectName
+                        "Przedmiot",
                         fontWeight = FontWeight.Light,
                         modifier = Modifier
                             .padding(vertical = 10.dp)
                             .weight(1f)
                     )
                     Text(
-                        "Grupa", //subjectName
+                        "Grupa",
                         fontWeight = FontWeight.Light,
                         modifier = Modifier
                             .padding(vertical = 10.dp)
                             .weight(1f)
                     )
                     Text(
-                        "Semestr", //subjectName
+                        "Semestr",
                         fontWeight = FontWeight.Light,
                         modifier = Modifier
                             .padding(vertical = 10.dp)
                             .weight(1f)
                     )
                     Text(
-                        "Przewidywana ocena", //subjectName
+                        "Przewidywana ocena",
                         fontWeight = FontWeight.Light,
 
                         modifier = Modifier
@@ -102,7 +106,7 @@ fun GradesScreen(grades: List<SubjectDto>, modifier: Modifier = Modifier) {
                             .weight(1f)
                     )
                     Text(
-                        dataItem.semester,
+                        dataItem.group,
                         fontWeight = FontWeight.Bold,
                         modifier = Modifier
                             .padding(vertical = 10.dp)
@@ -119,7 +123,7 @@ fun GradesScreen(grades: List<SubjectDto>, modifier: Modifier = Modifier) {
                 Divider()
             }
             if (!collapsed) {
-                items(dataItem.rows) { row ->
+                items(dataItem.grades) { row ->
                     Row(verticalAlignment = Alignment.CenterVertically) {
                         Spacer(modifier = Modifier.size(30.dp))
                         Text(

@@ -2,7 +2,7 @@ package pl.mjurek.highwaytoheaven.app.feature_home.domain.fake
 
 import android.util.Log
 import pl.mjurek.highwaytoheaven.app.feature_home.domain.model.notification.Notification
-import pl.mjurek.highwaytoheaven.app.feature_home.presentation.grades.CollapsableSection
+import pl.mjurek.highwaytoheaven.app.feature_home.presentation.grades.SubjectDto
 import java.util.*
 
 fun getFakeNotification(): List<Notification> {
@@ -19,51 +19,4 @@ fun getFakeNotification(): List<Notification> {
             message = "There is new materials on BSK nst."
         )
     )
-}
-
-fun getFakeGrades(): List<CollapsableSection> {
-    Log.i("FakeData", "getFakeGrades" + Random().nextInt())
-    return if (Random().nextInt() % 2 == 0) {
-        Log.i("FakeData", "getFakeGrades " + Random().nextInt())
-        listOf(
-            CollapsableSection(
-                title = "Fruits A",
-                rows = listOf("Apple", "Apricots", "Avocado")
-            ),
-            CollapsableSection(
-                title = "Fruits B",
-                rows = listOf("Banana", "Blackberries", "Blueberries")
-            ),
-            CollapsableSection(
-                title = "Fruits C",
-                rows = listOf("Cherimoya", "Cantaloupe", "Cherries", "Clementine")
-            ),
-            CollapsableSection(
-                title = "Fruits C",
-                rows = listOf("Cherimoya", "Cantaloupe", "Cherries", "Clementine")
-            ),
-            CollapsableSection(
-                title = "Fruits C",
-                rows = listOf("Cherimoya", "Cantaloupe", "Cherries", "Clementine")
-            ),
-            CollapsableSection(
-                title = "Fruits C",
-                rows = listOf("Cherimoya", "Cantaloupe", "Cherries", "Clementine")
-            ),
-        )
-    } else
-        listOf(
-            CollapsableSection(
-                title = "Fruits A",
-                rows = listOf("Apple", "Apricots", "Avocado")
-            ),
-            CollapsableSection(
-                title = "Fruits B",
-                rows = listOf("Banana", "Blackberries", "Blueberries")
-            ),
-            CollapsableSection(
-                title = "Fruits C",
-                rows = listOf("Cherimoya", "Cantaloupe", "Cherries", "Clementine")
-            ),
-        )
 }

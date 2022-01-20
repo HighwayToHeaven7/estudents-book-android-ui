@@ -19,6 +19,7 @@ class GetStudentDetailsUseCase(private val userRepository: UserRepository) {
             userMapper.convertToStudentDetailScreenDto(studentDetails.data?.personalData)
         details.nameAndSurname =
             "${studentDetails.data?.personalData?.name} ${studentDetails.data?.personalData?.surname}"
+
         return Resource.Success(details)
     }
 }

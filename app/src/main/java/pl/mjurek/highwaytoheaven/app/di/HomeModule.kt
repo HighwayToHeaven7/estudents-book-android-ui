@@ -9,6 +9,7 @@ import pl.mjurek.highwaytoheaven.app.feature_home.data.remote.UserApi
 import pl.mjurek.highwaytoheaven.app.feature_home.data.repository.UserRepositoryImpl
 import pl.mjurek.highwaytoheaven.app.feature_home.domain.repository.UserRepository
 import pl.mjurek.highwaytoheaven.app.feature_home.domain.use_case.GetStudentDetailsUseCase
+import pl.mjurek.highwaytoheaven.app.feature_home.domain.use_case.GetStudentSubjectsAndGradesUseCase
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -37,6 +38,12 @@ object HomeModule {
     @Singleton
     fun provideUserDetailGetUseCase(repository: UserRepository): GetStudentDetailsUseCase {
         return GetStudentDetailsUseCase(repository);
+    }
+
+    @Provides
+    @Singleton
+    fun provideStudentSubjectAndGradesUseCase(repository: UserRepository): GetStudentSubjectsAndGradesUseCase {
+        return GetStudentSubjectsAndGradesUseCase(repository)
     }
 
 }

@@ -10,7 +10,6 @@ import androidx.navigation.compose.composable
 import pl.mjurek.highwaytoheaven.app.core.util.Screen
 import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.login.LoginScreen
 import pl.mjurek.highwaytoheaven.app.feature_auth.presentation.splash.SplashScreen
-import pl.mjurek.highwaytoheaven.app.feature_home.domain.fake.getFakeGrades
 import pl.mjurek.highwaytoheaven.app.feature_home.domain.fake.getFakeNotification
 import pl.mjurek.highwaytoheaven.app.feature_home.presentation.HomeScreen
 import pl.mjurek.highwaytoheaven.app.feature_home.presentation.grades.GradesScreen
@@ -52,7 +51,7 @@ fun Navigation(
 //            SettingsScreen()
 //        }
         composable(Screen.Grades.route) {
-            GradesScreen(getFakeGrades())
+            GradesScreen()
         }
         composable(Screen.UserDetail.route) {
             UserDataScreen()

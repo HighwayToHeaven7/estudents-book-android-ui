@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class StudentData(
     @SerializedName("id") var id: String? = null,
     @SerializedName("personal_data") var personalData: PersonalData? = PersonalData(),
-    @SerializedName("subject_cards") var subjectCards: ArrayList<SubjectCards> = arrayListOf()
+    @SerializedName("subject_cards") var subjectCards: List<SubjectCards> = arrayListOf()
 )
 
 data class Contact(
@@ -34,15 +34,15 @@ data class PersonalData(
 
 data class Grades(
     @SerializedName("id") var id: String? = null,
-    @SerializedName("grade") var grade: Int? = null,
-    @SerializedName("weight") var weight: Int? = null,
+    @SerializedName("grade") var grade: Double? = null,
+    @SerializedName("weight") var weight: Double? = null,
     @SerializedName("description") var description: String? = null
 )
 
 data class SubjectCards(
-    @SerializedName("groupName") var groupName: String? = null,
-    @SerializedName("semesterNumber") var semesterNumber: Int? = null,
-    @SerializedName("subjectName") var subjectName: String? = null,
-    @SerializedName("expectedGrade") var expectedGrade: Int? = null,
+    @SerializedName("group_name") var groupName: String? = null,
+    @SerializedName("semester_number") var semesterNumber: Double? = null,
+    @SerializedName("subject_name") var subjectName: String? = null,
+    @SerializedName("expected_grade") var expectedGrade: Double? = null,
     @SerializedName("grades") var grades: ArrayList<Grades> = arrayListOf()
 )
